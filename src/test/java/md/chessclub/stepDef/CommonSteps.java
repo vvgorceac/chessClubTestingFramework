@@ -1,22 +1,34 @@
 package md.chessclub.stepDef;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import md.chessclub.support.pageObjects.BasePage;
+import md.chessclub.support.pageObjects.MainPage;
+import md.chessclub.support.pageObjects.TournamentsPage;
+import org.openqa.selenium.WebDriver;
 
 public class CommonSteps {
-    @Given("^I am on google page$")
-    public void iAmOnGooglePage() {
+    WebDriver driver = Hooks.driver;
 
+    @Given("^I am on the (Main|Tournaments) Page$")
+    public void iAmOnTheSomePage(String pageName) {
+        BasePage page = null;
+        switch (pageName) {
+            case "Main":
+                page = MainPage.getInstance();
+                break;
+            case "Tournaments":
+                page = TournamentsPage.getInstance();
+        }
+
+        page.navigate(driver);
+        page.waitPageReady();
     }
 
-    @When("^I serach for \"([^\"]*)\"$")
-    public void iSerachFor(String arg1) {
-
-    }
-
-    @Then("^I see search results$")
-    public void iSeeSearchResults() {
-
+    @Then("^I see Current $")
+    public void iSeeCurrent() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
