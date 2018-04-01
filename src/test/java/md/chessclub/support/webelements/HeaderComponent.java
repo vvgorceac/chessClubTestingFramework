@@ -1,7 +1,13 @@
 package md.chessclub.support.webelements;
 
-public class HeaderComponent {
-    private static HeaderComponent instance = new HeaderComponent();
+import org.openqa.selenium.By;
+
+public class HeaderComponent extends BaseWebElement {
+    private static HeaderComponent instance = new HeaderComponent(By.xpath(".//div[@class=\"navbar navbar-inverse navbar-fixed-top\"]"), "Header Component");
+
+    private HeaderComponent(By locator, String name) {
+        super(locator, name, null);
+    }
 
     public static HeaderComponent getInstance() {
         return HeaderComponent.instance;

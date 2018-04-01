@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
-//TODO implement basic functionality: navigate, watePageReady, include common elements
 public class BasePage {
     private static final Logger logger = LogManager.getLogger(BasePage.class);
     private String baseUrl = Hooks.prop.getProperty("baseURL");
@@ -23,8 +22,13 @@ public class BasePage {
         return this.baseUrl;
     }
 
-    public void waitPageReady(WebDriver driver) {
-     //   driver.wait(this.header.isDisplayed())
+    public void waitPageReady() {
+        this.waitPageReady(Hooks.getDefaultExplicitTimeout());
+    }
+
+    public void waitPageReady(int timeoutInSeconds) {
+        logger.info("Waiting page to load", timeoutInSeconds);
+        this.header.waitTillIsVisible(20);
     }
 
 }

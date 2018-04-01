@@ -5,6 +5,6 @@ Feature: As a user I need main page to have tables of tournaments, news and rati
     Then I see <TypeOfTable> table
     Examples:
       | TypeOfTable |
-      | Current     |
-      | Future      |
-      | Completed   |
+      | currentTournaments     |
+#      | futureTournaments      |
+#      | lastTournaments   |

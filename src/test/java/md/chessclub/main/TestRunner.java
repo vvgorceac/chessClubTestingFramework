@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
         glue = {"md/chessclub/stepDef"},
         features = {"src/test/features"},
         snippets = SnippetType.CAMELCASE,
-        plugin = {"pretty", "html:target/cucumber"})
+        format = {"pretty", "html:target/cucumber-htmlreport", "json-pretty:target/cucumber-report.json"}
+)
 public class TestRunner {
 }
